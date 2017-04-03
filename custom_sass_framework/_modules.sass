@@ -1,0 +1,440 @@
+
+// -----------------------------------------------------
+// Layout helpers
+// -----------------------------------------------------
+.left
+	float: left
+.right
+	float: right
+.clear
+	clear: both
+.swap
+	margin-right: 0
+.centered
+	margin: 0 auto
+
+
+
+//.text-center
+//	@extend %text-center
+//.text-left
+//	@extend %text-left
+//.text-right
+//	@extend %text-right
+//
+//%text-center
+//	text-align: center
+//%text-left
+//	text-align: left
+//%text-right
+//	text-align: right
+
+
+
+// -----------------------------------------------------
+// Box colors
+// -----------------------------------------------------
+.dark-bg
+	background-color: $grey-dark !important
+	color: $grey-medium
+.dark-video
+	background-color: $grey-video !important
+.dark-text, .dark-text > *
+	color: $grey-dark
+.green
+	background-color: $green-blue
+.green-light
+	background-color: $green-light
+.orange
+	background-color: $orange-bright
+.alert
+	background-color: $orange-bright !important
+	p
+		padding-left: 20px
+
+
+
+// -----------------------------------------------------
+// Caption Boxes and Titles
+// -----------------------------------------------------
+.title-box
+	position: absolute
+	padding: 10px 15px
+	background: $black-translucent
+	//Colors
+	&.grey
+		background: $grey-dark-translucent
+	&.purple
+		background-color: $purple-translucent
+	&.orange
+		background: $orange-bright-translucent
+	&.green
+		background-color: $green-translucent
+	
+	//Position
+	&.caption, &.date
+		bottom: 0
+	&.action
+		bottom: 0
+		right: 0
+		//max-width: 50%
+	//Video listing thumbnail description text
+	&.video
+		&.title
+			bottom: 15px
+			text-indent: 15px
+			padding-right: 15px
+		&.date
+			padding-bottom: 45px
+			background: none
+			text-shadow: 1px 1px 5px $grey-dark
+
+h1
+	&.title-box
+		padding: 15px 25px
+.header-box
+	width: 100%
+	padding: 10px 15px
+	padding-top: 20px
+	background: $green-blue
+	margin-bottom: 5px
+	
+
+//extra information inside of a dark-bg thumbnail-view box
+.extra-info
+	position: absolute
+	padding: 20px
+	margin-top: 30px
+	*
+		color: $grey-dark
+.image-replacement
+	width: auto
+	min-height: 240px
+	display: block
+
+
+// -----------------------------------------------------
+// Button defaults
+// -----------------------------------------------------	
+.give a
+	background-color: $orange-bright
+	&:hover
+		background-color: $orange-highlight
+		cursor: default
+.preview-image
+	position: relative
+.button
+	display: block
+	padding: 15px 0
+	text-align: center
+	background: $green-blue
+	font-size: em(20)
+	//width: 100%
+	color: $grey-light
+	font-weight: $bold
+	text-align: center
+
+
+
+
+// -----------------------------------------------------
+// More arrows
+// -----------------------------------------------------
+.more
+	font-size: inherit
+	display: inline-block
+	&:after
+		content: " \25B8"
+		display: inline-block
+
+.read-more
+	//font-size: inherit
+	font-weight: $bold
+	//letter-spacing: em(1)
+	&:after
+		content: "Read More \25B8"
+		display: inline-block
+
+.watch-more
+	font-size: inherit
+	&:after
+		content: "Watch \25B8"
+		content: $arrow-large-downward
+		display: inline-block
+
+
+
+
+// -----------------------------------------------------
+// css triangle
+// -----------------------------------------------------
+.triangle
+	content: ''
+	height: 0
+	width: 0
+	margin: 0 3 0 10px
+	display: inline-block
+	zoom: 1
+	z-index: 3
+	border-width: 4px 0 4px 4px
+	border-style: solid
+	border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #fff
+
+
+
+
+// -----------------------------------------------------
+// News Articles
+// -----------------------------------------------------
+article
+	margin-top: 20px
+	display: block
+	&:first-child
+		margin-top: 0
+	.preview-image
+		width: percentage(285/895)
+		max-height: 160px
+		display: block
+		float: left
+		position: relative
+	.description
+		max-width: percentage((895-285-20)/895)
+		margin-left: percentage(20/895)
+		display: block
+		float: left
+	.title
+		padding: 15px
+		width: 96%
+		display: block
+		//letter-spacing: em(1)
+		background-color: $green-blue
+	.short
+		padding: percentage(20/895)
+		padding-left: 0
+		color: $grey-dark
+		display: inline-block
+
+
+
+// -----------------------------------------------------
+// Schedule Box
+// -----------------------------------------------------
+.schedule
+	li
+		border-left: 8px solid $green-blue
+		margin-bottom: 15px
+		padding-left: 5px
+		padding-right: 5px
+	h4, h5
+		color: $grey-dark
+		line-height: 1.1em
+	.schedule-title
+		text-transform: uppercase
+		border-bottom: 3px solid $green-blue
+		margin-bottom: 10px
+		display: inline-block
+		font-weight: $bold
+		font-size: 1.1em
+		color: $green-blue
+	.location
+		font-weight: $normal
+		font-style: italic
+		color: $grey-dark
+	.date
+		font-size: em(14)
+		text-transform: uppercase
+		color: #711100
+		padding-top: 5px
+		font-weight: $semibold
+		span
+			font-size: em(18)
+			font-weight: $normal
+.location-preview
+	p
+		color: $grey-dark
+		padding: 10px 0
+
+
+
+// -----------------------------------------------------
+// Schedule Weekend
+// -----------------------------------------------------
+.schedule-weekend
+	width: percentage(475/575)
+	margin: percentage(50/575)
+	h1
+		padding-left: 20px
+	h4
+		font-size: em(24)
+		background-color: $green-blue
+		padding: 8px
+		padding-left: 20px
+	th
+		padding-bottom: 15px
+	& tr:last-of-type th
+		padding-bottom: 0
+	td
+		font-size: em(22)
+		padding-bottom: 5px
+		padding-left: 20px
+		font-weight: $normal
+	.button
+		margin-top: 20px
+
+
+
+
+// -----------------------------------------------------
+// News Updates
+// -----------------------------------------------------
+.update
+	background-color: $grey-dark
+	padding: 15px 0
+	.title
+		padding: 0 15px
+		//letter-spacing: 1px
+		text-transform: capitalize
+		//background-color: $green-blue
+	.post-date
+		padding: 5px 15px
+		font-weight: $semibold
+		text-transform: capitalize
+	.short
+		padding: 0 15px
+
+
+// -----------------------------------------------------
+// Blog Post
+// -----------------------------------------------------
+.news-post
+	.social > img
+		width: 20px
+		display: inline-block
+		padding-left: 10px
+	> .post-date
+		padding-left: 15px
+	> .news-summary
+		padding-left: 15px
+// -----------------------------------------------------
+// Update Snippets
+// -----------------------------------------------------
+.update-snippets
+	margin-top: 20px
+	margin-bottom: 20px
+	h3.divider
+		background-color: $grey-dark
+		padding: 10px 15px
+	li
+		padding-left: 15px
+		padding-right: 15px
+		padding-top: 10px
+		line-height: 1.2em
+
+
+
+// -----------------------------------------------------
+// Video player
+// -----------------------------------------------------
+.video-player
+	position: relative
+	//width: 80%
+	//max-height: 540px
+	margin-bottom: $margin-default
+	.video-overlay
+		width: 100%
+		height: 100%
+		position: absolute
+		z-index: 1
+		background-color: rgba(255, 255, 255, 0.5)
+		text-align: center
+		//display: none
+	.video-countdown
+		display: inline-block
+		padding: percentage(30/960)
+		padding-bottom: 0
+		vertical-align: middle
+		h1, h2
+			line-height: .8em
+
+	.controls
+		display: inline-block
+		//padding: 20px 30px
+		padding: percentage(20/960) percentage(30/960)
+		position: relative
+		background: $grey-dark
+	
+	.share
+		margin-top: percentage(30/960)
+		margin-bottom: percentage(20/960)
+		//display: block
+	.social
+		text-align: center
+		padding: percentage(20/960)
+		margin: percentage(10/960)
+		background-color: $grey-dark
+		display: inline-block
+		font-weight: $semibold
+	.thumbnails
+		width: divisions(3, 1, 1000, 50)
+		margin-left: $margin-default
+		text-align: left
+.video-description
+	overflow: hidden
+	.video-date
+		padding-top: 5px
+		padding-bottom: 10px
+
+
+
+// -----------------------------------------------------
+// Video Listing
+// -----------------------------------------------------
+.video-listing
+	//& > .three-of-four
+	//& > .one-of-four
+	//	> .listing
+	//		width: divisions(2,1,895,20)
+
+
+
+
+
+// -----------------------------------------------------
+// Expander Section
+// -----------------------------------------------------
+.expander
+	padding: 10px
+	background-color: $green-blue
+	border-bottom: 4px solid $green-shadow
+	margin-top: 20px
+	h4
+		font-weight: $semibold
+		&:before
+			content: "+ "
+			font-size: 50px
+			font-weight: $bold
+			line-height: 0
+			vertical-align: middle
+
+
+
+
+// -----------------------------------------------------
+// Images
+// -----------------------------------------------------
+img.watermark
+	position: absolute
+	top: 0
+	padding: 30px
+	background: transparent
+	max-width: 90px	
+
+
+
+
+
+
+
+
+
+

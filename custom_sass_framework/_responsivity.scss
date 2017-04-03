@@ -1,0 +1,91 @@
+// -----------------------------------------------------
+// Gumby Framework - settings.scss
+// Gumby 2.0 Settings.
+// -----------------------------------------------------
+
+// Responsiveness Settings
+$phone-device-width: 480px;			// iPhone Landscape
+$tablet-device-width: 768px;		// iPad Portrait
+$tablet-device-height: 1024px;		// iPad Landscape
+
+
+// -----------------------------------------------------
+// Gumby Framework - breakpoints.scss
+// Breakpoints function
+// -----------------------------------------------------
+@function breakpoint($breakpoint) {
+	@if $breakpoint == $phone-device-width {
+		@return $phone-device-width + 1;
+	}
+	@if $breakpoint == $tablet-device-width {
+		@return $tablet-device-width - 1;
+	}
+	@if $breakpoint == $tablet-device-height {
+		@return $tablet-device-height + 1;
+	}
+}
+
+
+// -----------------------------------------------------
+// Gumby Framework - responsivity.scss
+// Responsive Mixins
+// -----------------------------------------------------
+@mixin respond($media) {
+	@if $media == default {
+		@media only screen { @content; }
+	}
+	@else if $media == small-phones {
+		@media only screen and (max-width: $phone-device-width) { @content; } //max 480px
+	}
+	@else if $media == large-phones {
+		@media only screen and (min-width: breakpoint($phone-device-width)) and (max-width: breakpoint($tablet-device-width)) { @content; } //min 481px + max 767px
+	}
+	@else if $media == all-phones {
+		@media only screen and (max-width: breakpoint($tablet-device-width)) { @content; } //max 767px
+	}
+	@else if $media == tablets {
+		@media only screen and (min-width: $tablet-device-width) and (max-width: $tablet-device-height) { @content; } //768px + 1024px
+	}
+	@else if $media == all-mobile {
+		@media only screen and (max-width: $tablet-device-height) { @content; } //1024px
+	}
+	@else if $media == desktop {
+		@media only screen and (min-width: breakpoint($tablet-device-height)) { @content; } //1025px
+	}
+	@else if $media == retina {
+		@media only screen and (-webkit-min-device-pixel-ratio: 2) { @content; } //hi-resolution displays
+	}
+	@else if $media == print {
+		@media only print { @content; }
+	}
+	@else {
+		@media only screen and ('#{$media}') { @content; }
+	}
+}
+
+
+
+// Responsiveness Queries
+// ------------------------------
+/*//
+@include respond(small-phones)
+@include respond(large-phones)
+@include respond(all-phones)
+@include respond(tablet)
+@include respond(all-mobile)
+@include respond(desktop)
+@include respond(default)
+@include respond(print)
+@include respond(retina)
+
+
++respond(small-phones)
++respond(large-phones)
++respond(all-phones)
++respond(tablet)
++respond(all-mobile)
++respond(desktop)
++respond(default)
++respond(print)
++respond(retina)
+//*/

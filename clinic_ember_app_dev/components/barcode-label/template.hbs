@@ -1,0 +1,29 @@
+<!-- barcode label -->
+{{#if patient.id}}
+<div class="col-md-5 print text-center">
+	<h3 class="nonprint">Label Preview</h3>
+	<div class="labelwrapper">
+		<div id="label">
+      <p>{{patient.first_name}} {{patient.last_name}}<br>
+      {{patient.address_1}}{{#if patient.address_1}}, {{/if}}<br>
+			{{patient.city}}{{#if patient.city}}, {{/if}}{{patient.state}} {{patient.zip}}<br>
+      {{patient.age}}{{#if patient.age}} • {{/if}}{{patient.gender}}{{#if patient.gender}} • {{/if}}{{patient.dob}}<br>
+      {{patient.mobile_number}}<br>
+			{{patient.email}}</p>
+			<div id="barcode" class="{{patient.id}}"></div>
+		</div>
+	</div>
+</div>
+<div class="clearfix"></div>&nbsp;
+<div class="col-md-5 nonprint text-center">
+	<button {{action "reprint" patient.id}} class="btn btn-warning">Reprint Label</button>
+</div>
+{{else}}
+<div class="col-md-5 nonprint text-center">
+	<p>else: patient_id not found</p>
+</div>
+{{/if}}
+
+
+
+{{yield}}

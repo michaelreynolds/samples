@@ -1,0 +1,24 @@
+//Font Base size
+$basefontsize:16;
+
+@function em($target, $container: $basefontsize){
+	@return ($target / $container) * 1em;
+}
+
+
+
+@function divisions($division_slices, $num_slices: 1, $container-width: 1200, $gutter: 20){
+	
+	$slice-width: (($container-width/$division_slices)) - (($gutter * ($division_slices - 1)) / $division_slices);
+	$division-width: $slice-width * $num_slices + ($num_slices - 1) * $gutter;
+	
+	@return percentage($division-width / $container-width);
+}	
+	
+	
+// $column-width: (($container/$divisions_slices) / $container * 100%) - (((($gutter / $container) * 100%) * ($divisions_slices - 1)) / $divisions_slices);
+
+// $column-width: (1200/4) - ((20 * (4 - 1))/4); // = 285
+// $column-width: (1200/2) - ((20 * (2 - 1))/2); // = 590
+// $division-width: 1 * 285 + (4-1) * 20
+// $division-width: 1 * 285 + (2-1) * 20

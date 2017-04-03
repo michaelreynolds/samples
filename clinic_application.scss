@@ -1,0 +1,875 @@
+ /*
+  * author: Michael Reynolds - github.com/michaelreynolds
+  * date: April 2016
+  *
+  * This is a manifest file that'll be compiled into application.css, which will include all the files
+  * listed below.
+  *
+  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+  * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+  *
+  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+  * compiled file so the styles you add here take precedence over styles defined in any styles
+  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+  * file per style scope.
+  *
+  *= require_tree .
+  *= stub "active_admin"
+  *= require_self
+  */
+
+  // Based on Bootstrap
+
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
+
+// @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
+@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans);
+/*@import url(https://azalea.com/web-fonts/Code39Azalea.min.css);*/
+/*@import url(https://bootswatch.com/slate/bootstrap.min.css);*/
+
+$accent-color: #005ac8;
+$primary-color: #0084D9;
+$secondary-color: #00AFD9;
+$tertiary-color: #0072d9;
+$contrast-color: #FFA833;
+$active-color: #23527c;
+$disabled-color: #bbb;
+$link-color: #337ab7;
+
+$alert-color: #ffcd64;
+$alert1-color: #ffb939;
+$alert2-color: #ff7d62;
+$alert3-color: #d23652;
+$alert4-color: #a6354d;
+$alert5-color: #793546;
+$background-gradient: linear-gradient($primary-color, $secondary-color);
+
+$font-default: 1em;
+$font-small: 0.85em;
+
+// heroku purple background gradient colors
+// background: linear-gradient(to bottom,#664a86,rgba(102,74,134,0)),linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,.04) 100%);
+// background: linear-gradient(to bottom, #4A4090, #372E6C);
+
+
+html, body {
+  min-height: 100%;
+}
+@media screen {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background: $background-gradient;
+    font-family: 'Merriweather Sans', arial, verdana;
+  }
+  .outatedbrowser {
+    display: block;
+    float: left;
+    top: 0;
+    background-color: #fff;
+    font-size: 30px;
+    text-align: center;
+  }
+  .mono {
+    font-family: monospace;
+  }
+  h1, h2, h3 {
+    color: #fff;
+    font-style: bold;
+  }
+
+  /*--------------------------------------------------------*/
+  .login-overlay{
+    background: $background-gradient;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+  }
+  .auth-form {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    margin: 0 auto;
+    padding: 30px;
+    background: white;
+    text-align: center;
+    border-radius: 3px;
+    .thumbnail{
+      background: $primary-color;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 30px;
+      padding: 25px;
+      border-radius:100%;
+    }
+      svg{
+        display: block;
+        margin: auto;
+      }
+    & input{
+      width: 100%;
+      outline: 0;
+      border: 0;
+      background: darken(white, 5%);
+      margin: 0 0 15px;
+      padding: 15px;
+      border-radius: 3px;
+      box-sizing: border-box;
+      font-size: $font-default;
+      &[type="submit"] {
+        outline: 0;
+        background: $primary-color;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        border-radius: 3px;
+        color: white;
+        font-size: $font-default;
+        cursor: pointer;
+      }
+    }
+    .message {
+      margin: 15px 0 0;
+      color: darken(white, 30%);
+      font-size: $font-small;
+      a {
+        color: $primary-color;
+        text-decoration: none;
+      }
+    }
+    .register-form {
+      display: none;
+    }
+  }
+  /*--------------------------------------------------------*/
+  @media (min-width: 768px){
+    .form-inline .form-control{
+        display: inline-block;
+        width: 42.5%;
+        vertical-align: middle;
+    }
+  }
+
+  .form-control{
+    border: 0;
+    outline: 0;
+  }
+  label{
+    padding: 5px;
+  }
+  input{
+    outline: 0;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: $font-default;
+    &:focus {
+      outline: none;
+    }
+    &[type=radio]{
+      &:not(old) {
+        width: 2em;
+        font-size: 2em;
+      }
+    }
+    &.transparent{
+      border: none;
+      background: transparent;
+      margin: 0;
+      padding: 0;
+      border-radius: 0;
+      &:focus{
+        outline: none;
+      }
+    }
+    &:valid, &:in-range {}
+    &:invalid, &:out-of-range {}
+    &:focus + .help,
+    &:invalid + .help{
+      display:inline-block;
+    }
+    &:optional {}
+    &:required {}
+  }
+  form#barcode_search{
+    display: inline;
+  }
+  nav {
+  	margin: 0;
+  	ul {
+  		list-style: none;
+      background-color: $accent-color;
+  		position: relative;
+      float: right;
+      z-index: 2;
+  		margin: 0;
+  		padding: 0;
+  		a {
+  			display: block;
+  			color: lighten($primary-color, 30%);
+  			text-decoration: none;
+  			line-height: 32px;
+  			padding: 0 15px;
+        cursor: default;
+        &:hover{
+          text-decoration: none;
+          background-color: $accent-color;
+          color: lighten($secondary-color, 30%);
+        }
+  		}
+      em{
+        padding: 0 15px;
+        font-size: .8em;
+      }
+  		li {
+  			position: relative;
+        background: $primary-color;
+  			float: left;
+  			margin: 0;
+  			padding: 0;
+  			&:hover {
+          text-decoration: none;
+  				& > ul {
+  					display: block;
+  				}
+  			}
+  		}
+  		& ul {
+  			display: none;
+  			position: absolute;
+  			background: $primary-color;
+  			top: 100%;
+  			left: 0;
+  			padding: 0;
+  			li {
+  				float: none;
+  				width: auto;
+          min-width: 103px;
+  			}
+  			a {
+  				line-height: 120%;
+  				padding: 10px 15px;
+          text-decoration: none;
+  			}
+  		}
+  	}
+  }
+
+  ////////////////////////////////
+  ////////////////////////////////
+  ////////////////////////////////
+  // <nav>
+  //   <ul>
+  //     <li><a>parent</a>
+  //       <ul>
+  //         <li>
+  //           <a>child
+  ////////////////////////////////
+  //bare minimum for dropdown menu
+  ////////////////////////////////
+  // nav ul{
+  //   list-style:none;
+  //   z-index: 2;
+  //   li{
+  //     position:relative;
+  //     &:hover > ul{
+  //       display:block
+  //     }
+  //   }
+  //   & ul {
+  //     display:none;
+  //     position:absolute;
+  //     left:0;
+  //     padding:0
+  //   }
+  // }
+  ////////////////////////////////
+  ////////////////////////////////
+  ////////////////////////////////
+
+
+//a:hover > span.glyphicon::before
+
+a{
+  &:hover {
+    text-decoration: none;
+  }
+  &:active{
+    text-decoration: none;
+  }
+}
+a{
+  & > .unhold{
+    color: white;
+    //text-shadow: 0px 0px 3px $accent-color;
+    -webkit-text-stroke: 1px $link-color;
+    &:hover{
+      color: $link-color;
+    }
+  }
+  & > .hold{
+  color: $link-color;
+    &:hover{
+      color: $link-color;
+    }
+  }
+}
+.table-hover>tbody>tr.hold {
+  background-color: $disabled-color;
+}
+
+
+@keyframes blinker {
+  50% { opacity: 0.2; }
+}
+
+.service{
+  .service-item{}
+  &:first-child{
+    animation: blinker 1s linear infinite;
+  }
+  &:nth-child(2){
+    // background-color: $alert2-color;
+  }
+  &:nth-child(3){
+    // background-color: $alert1-color;
+  }
+  &:nth-child(4){
+    // background-color: $alert-color;
+  }
+}
+//$alert-color;
+// $alert2-color;
+// $alert3-color;
+// $alert4-color;
+// $alert5-color;
+
+
+#fullscreen{
+  padding-top: 20px;
+  & * {
+    color: #000;
+  }
+}
+
+/*--------------------------------------------------------*/
+// HACK: using seperate selectors or else it won't work (combining them)!!
+#fullscreen:-moz-full-screen{
+  width: 100vw;
+  height: 100vh;
+}
+#fullscreen:-ms-fullscreen{
+  width: 100vw;
+  height: 100vh;
+}
+#fullscreen:-webkit-full-screen{
+  width: 100vw;
+  height: 100vh;
+}
+#fullscreen:fullscreen{
+  width: 100vw;
+  height: 100vh;
+}
+// #fullscreen:-webkit-full-screen-ancestor:not(iframe){
+//   width: 100vw;
+//   height: 100vh;
+// }
+// #fullscreen:fullscreen::backdrop {
+//   background-color: #006;
+// }
+
+  /*--------------------------------------------------------*/
+  // #inputs input {
+  //   background: #efefef;
+  //   padding: 6px 5px;
+  //   margin: 0 0 5px 0;
+  //   width: 238px;
+  //   border-radius: 3px;
+  // }
+
+  //input {
+    // &[type=radio]:not(old) {
+    //   width: 5em;
+    //   font-size: 2em;
+    //   // opacity: 1;
+    //   // margin: 0;
+    //   // padding: 0;
+    // }
+    // &[type=radio]:not(old) + label {
+    //   display: inline-block;
+    //   margin-left: -2em;
+    //   line-height: 1.5em;
+    // }
+    // &[type=radio]:not(old) + label > span {
+    //   display: inline-block;
+    //   width: 0.875em;
+    //   height: 0.875em;
+    //   margin: 0.25em 0.5em 0.25em 0.25em;
+    //   border: 0.0625em solid rgb(192, 192, 192);
+    //   border-radius: 0.25em;
+    //   background: rgb(224, 224, 224);
+    //   background-image: linear-gradient(rgb(240, 240, 240), rgb(224, 224, 224));
+    //   vertical-align: bottom;
+    // }
+    // &[type=radio]:not(old):checked + label > span {
+    //   background-image: linear-gradient(rgb(224, 224, 224), rgb(240, 240, 240));
+    // }
+    // &[type=radio]:not(old):checked + label > span > span {
+    //   display: block;
+    //   width: 0.5em;
+    //   height: 0.5em;
+    //   margin: 0.125em;
+    //   border: 0.0625em solid rgb(115, 153, 77);
+    //   border-radius: 0.125em;
+    //   background: rgb(153, 204, 102);
+    //   background-image: linear-gradient(rgb(179, 217, 140), rgb(153, 204, 102));
+    // }
+  //}
+
+
+
+  /*--------------------*/
+
+  // #login {
+  //   #actions {
+  //     margin: 10px 0 0 0;
+  //   }
+  //   #login-btn {
+  //     // background-image: -webkit-gradient(linear, left top, left bottom, from(#d46a15), to(#bf4c24));
+  //     // background-image: -webkit-linear-gradient(top, #d46a15, #bf4c24);
+  //     // background-image: -moz-linear-gradient(top, #d46a15, #bf4c24);
+  //     // background-image: -ms-linear-gradient(top, #d46a15, #bf4c24);
+  //     // background-image: -o-linear-gradient(top, #d46a15, #bf4c24);
+  //     // background-image: linear-gradient(top, #d46a15, #bf4c24);
+  //     // -moz-border-radius: 3px;
+  //     // -webkit-border-radius: 3px;
+  //     // border-radius: 3px;
+  //     // text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  //     // -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  //     // -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  //     // box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  //     // border: 1px solid #222222;
+  //     // float: left;
+  //     // height: 30px;
+  //     // padding: 0;
+  //     // width: 100px;
+  //     // cursor: pointer;
+  //     // font: bold 14px Arial, Helvetica;
+  //     // color: #efefef;
+  //     &:hover, &:focus {
+  //       // background-color: #d79800;
+  //       // background-image: -webkit-gradient(linear, left top, left bottom, from(#bf4c24), to(#d46a15));
+  //       // background-image: -webkit-linear-gradient(top, #bf4c24, #d46a15);
+  //       // background-image: -moz-linear-gradient(top, #bf4c24, #d46a15);
+  //       // background-image: -ms-linear-gradient(top, #bf4c24, #d46a15);
+  //       // background-image: -o-linear-gradient(top, #bf4c24, #d46a15);
+  //       // background-image: linear-gradient(top, #bf4c24, #d46a15);
+  //     }
+  //     &:active {
+  //       outline: none;
+  //       -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+  //       -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+  //       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+  //     }
+  //     &::-moz-focus-inner {
+  //       border: none;
+  //     }
+  //   }
+  //   label {
+  //     float: right;
+  //     line-height: 30px;
+  //     input {
+  //       position: relative;
+  //       top: 2px;
+  //       right: 2px;
+  //     }
+  //   }
+  // }
+
+  // /*----------------------*/
+  //
+  // nav {
+  //   ul {
+  //     margin: 0;
+  //     padding: 0;
+  //     list-style: none;
+  //     position: relative;
+  //     float: right;
+  //     background: $accent-color;
+  //     // border-bottom: 1px solid #444;
+  //     // -moz-border-radius: 3px;
+  //     // -webkit-border-radius: 3px;
+  //     // border-radius: 3px;
+  //   }
+  //   li {
+  //     float: left;
+  //   }
+  // }
+
+  /*--------------------------------------------------------*/
+  // nav {
+  //   ul {
+  //     margin: 0;
+  //     padding: 0;
+  //     list-style: none;
+  //     position: relative;
+  //     float: right;
+  //     background: #eee;
+  //     border-bottom: 1px solid #fff;
+  //     border-radius: 3px;
+  //   }
+  //   li {
+  //     float: left;
+  //   }
+  //   #login {
+  //     border-right: 1px solid #ddd;
+  //     box-shadow: 1px 0 0 #fff;
+  //   }
+  //   #login-trigger {
+  //     display: inline-block;
+  //     *display: inline;
+  //     *zoom: 1;
+  //     height: 25px;
+  //     line-height: 25px;
+  //     font-weight: bold;
+  //     padding: 0 8px;
+  //     text-decoration: none;
+  //     color: #444;
+  //     text-shadow: 0 1px 0 #fff;
+  //   }
+  //   #signup a {
+  //     display: inline-block;
+  //     *display: inline;
+  //     *zoom: 1;
+  //     height: 25px;
+  //     line-height: 25px;
+  //     font-weight: bold;
+  //     padding: 0 8px;
+  //     text-decoration: none;
+  //     color: #444;
+  //     text-shadow: 0 1px 0 #fff;
+  //     border-radius: 0 3px 3px 0;
+  //   }
+  //   #login-trigger {
+  //     border-radius: 3px 0 0 3px;
+  //     &:hover {
+  //       background: #fff;
+  //     }
+  //   }
+  //   #login .active, #signup a:hover {
+  //     background: #fff;
+  //   }
+  //   #login-content {
+  //     display: none;
+  //     position: absolute;
+  //     top: 24px;
+  //     right: 0;
+  //     z-index: 999;
+  //     background: #fff;
+  //     background-image: linear-gradient(top, #fff, #eee);
+  //     padding: 15px;
+  //     box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.9);
+  //     border-radius: 3px 0 3px 3px;
+  //   }
+  //   li #login-content {
+  //     right: 0;
+  //     width: 250px;
+  //   }
+  // }
+  //
+  // /*--------------------*/
+  //
+  // #inputs input {
+  //   background: #f1f1f1;
+  //   padding: 6px 5px;
+  //   margin: 0 0 5px 0;
+  //   width: 238px;
+  //   border: 1px solid #ccc;
+  //   border-radius: 3px;
+  //   box-shadow: 0 1px 1px #ccc inset;
+  //   &:focus {
+  //     background-color: #fff;
+  //     // border-color: #e8c291;
+  //     outline: none;
+  //     // box-shadow: 0 0 0 1px #e8c291 inset;
+  //   }
+  // }
+  //
+  // /*--------------------*/
+  //
+  // #login {
+  //   #actions {
+  //     margin: 10px 0 0 0;
+  //   }
+  //   #submit {
+  //     // background-color: #d14545;
+  //     // background-image: linear-gradient(top, #e97171, #d14545);
+  //     // -moz-border-radius: 3px;
+  //     // -webkit-border-radius: 3px;
+  //     // border-radius: 3px;
+  //     // text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  //     // box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  //     // border: 1px solid #7e1515;
+  //     float: left;
+  //     height: 30px;
+  //     padding: 0;
+  //     width: 100px;
+  //     cursor: pointer;
+  //     font: bold 14px Arial, Helvetica;
+  //     color: #fff;
+  //     &:hover, &:focus {
+  //       // background-color: #e97171;
+  //       // background-image: linear-gradient(top, #d14545, #e97171);
+  //     }
+  //     &:active {
+  //       outline: none;
+  //       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+  //     }
+  //     &::-moz-focus-inner {
+  //       border: none;
+  //     }
+  //   }
+  //   label {
+  //     float: right;
+  //     line-height: 30px;
+  //     input {
+  //       position: relative;
+  //       top: 2px;
+  //       right: 2px;
+  //     }
+  //   }
+  // }
+
+
+
+  /*--------------------------------------------------------*/
+  .breadcrumbfx {
+    /*centering*/
+    display: inline-block;
+    /*box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.35);*/
+    overflow: hidden;
+    text-align: center;
+    background-color: none;
+    margin-bottom: 10px;
+    /*border-radius: 5px;*/
+    /*Lets add the numbers for each link using CSS counters. flag is the name of the counter.
+    to be defined using counter-reset in the parent element of the links*/
+    counter-reset: flag;
+    a {
+      text-decoration: none;
+      outline: none;
+      display: block;
+      float: left;
+      font-size: 12px;
+      line-height: 36px;
+      color: white;
+      /*need more margin on the left of links to accomodate the numbers*/
+      padding: 0 10px 0 60px;
+      /*background: #666;
+      background: linear-gradient(#666, #333);*/
+      position: relative;
+      &:first-child {
+        padding-left: 46px;
+        border-radius: 5px 0 0 5px;
+        /*to match with the parent's radius*/
+        &:before {
+          left: 14px;
+        }
+      }
+      &:last-child {
+        border-radius: 0 5px 5px 0;
+        /*this was to prevent glitches on hover*/
+        padding-right: 20px;
+      }
+    }
+  }
+  /*since the first link does not have a triangle before it we can reduce the left padding to make it look consistent with other links*/
+  .has-error {
+    border-color: red;
+  }
+  /*hover/active styles*/
+  /*.breadcrumbfx a.active, .breadcrumbfx a:hover{
+  		background: #333;
+  		background: linear-gradient(#333, #000);
+  	}
+  	.breadcrumbfx a.active:after, .breadcrumbfx a:hover:after {
+  		background: #333;
+  		background: linear-gradient(135deg, #333, #000);
+  	}*/
+  /*adding the arrows for the breadcrumbfxs using rotated pseudo elements*/
+  .breadcrumbfx a {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -18px;
+      /*half of square's length*/
+      /*same dimension as the line-height of .breadcrumbfx a */
+      width: 36px;
+      height: 36px;
+      /*as you see the rotated square takes a larger height. which makes it tough to position it properly.
+      So we are going to scale it down so that the diagonals become equal to the line-height of the link.
+      We scale it to 70.7% because if square's:
+      length = 1; diagonal = (1^2 + 1^2)^0.5 = 1.414 (pythagoras theorem)
+      if diagonal required = 1; length = 1/1.414 = 0.707*/
+      transform: scale(0.707) rotate(45deg);
+      /*we need to prevent the arrows from getting buried under the next link*/
+      z-index: 1;
+      /*background same as links but the gradient will be rotated to compensate with the transform applied*/
+      /*background: #666;
+      background: linear-gradient(135deg, #666, #333);*/
+      /*stylish arrow design using box shadow*/
+      box-shadow: 2px -2px 0 2px rgba(0, 134, 217, 1);
+        /*3px -3px 0 2px rgba(255, 255, 255, 0.1);*/
+      	/*5px - for rounded arrows and
+      	50px - to prevent hover glitches on the border created using shadows*/
+      border-radius: 0 5px 0 50px;
+    }
+    &:last-child:after {
+      content: none;
+    }
+    &:before {
+      content: counter(flag);
+      counter-increment: flag;
+      /*some styles now*/
+      border-radius: 100%;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      margin: 8px 0;
+      position: absolute;
+      top: 0;
+      left: 30px;
+      background: #444;
+      background: linear-gradient(#444, #222);
+      font-weight: bold;
+    }
+  }
+  /*we dont need an arrow after the last link*/
+  /*we will use the :before element to show numbers*/
+  .flat a {
+    background: white;
+    color: black;
+    transition: all 0.5s;
+    &:after {
+      background: white;
+      color: black;
+      transition: all 0.5s;
+    }
+    &:before {
+      background: white;
+      box-shadow: 0 0 0 1px #ccc;
+    }
+    &:hover, &.active, &:hover:after, &.active:after {
+      background: $accent-color;
+    }
+  }
+
+  /*--------------------------------------------------------*/
+  table {
+    background: #fff;
+    border-radius: 4px;
+  }
+  /*--------------------------------------------------------*/
+  .labelwrapper {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #666;
+    display: inline-block;
+  }
+  #label {
+    min-width: 320px;
+    height: 100px;
+    padding: 10px;
+    background: #fff;
+    font-family: monospace;
+    text-align: left;
+    line-height: 0.98em;
+    font-size: 1em;
+  }
+}
+/*--------------------------------------------------------*/
+@media all {
+  svg {
+    width: 90px;
+    height: 50px;
+    position: absolute;
+  }
+  text {
+    text-anchor: middle;
+    font-family: monospace;
+  }
+  path {
+    fill-opacity: 0;
+  }
+  #barcode{
+    top: 93px;
+    left: 260px;
+    position: absolute;
+    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+  }
+  #label{
+    display: block;
+    position: relative;
+    background: white;
+    vertical-align: middle;
+     & .date{
+       top: 45px;
+       left: 215px;
+       position: absolute;
+       transform: rotate(-90deg);
+       -ms-transform: rotate(-90deg);
+       -webkit-transform: rotate(-90deg);
+     }
+   }
+}
+/*--------------------------------------------------------*/
+@media print {
+  #barcode {
+    position: absolute;
+    left: 240px;
+    top: 85px;
+  }
+  #label {
+    margin: 8px;
+    margin-left: 25px;
+    top: 0;
+    left: 0;
+    color: #000;
+    font-family: monospace;
+    /*text-transform: uppercase;*/
+    line-height: .3em;
+    text-align: left;
+  }
+  /*--------------------------------------------------------*/
+  .nonprint {
+    display: none;
+    visibility: hidden;
+  }
+  .print, .print * {
+    margin: 0;
+    padding: 0;
+    border: none;
+    line-height: 1em;
+  }
+  html, html *, body, .container, .col-md-6, .col-md-7, #registration {
+    margin: 0;
+    padding: 0;
+  }
+  hr {
+    display: none;
+  }
+}

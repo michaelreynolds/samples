@@ -1,0 +1,49 @@
+    <div class="col-md-12 row nonprint">
+			<h3 class="text-center">Registered Patients Awaiting Triage Assessment</h3>
+			<table class="table table-hover">
+				<thead>
+					<tr class="bold">
+            <th><span class="glyphicon glyphicon-edit disabled"></span></th>
+            <th><span class="glyphicon glyphicon-print disabled"></span></th>
+            <th>Barcode</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Mobile Phone</th>
+            <th>Email</th>
+						<th>Street Address</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Zipcode</th>
+						<th>Date of Birth</th>
+						<th>Age</th>
+						<th>M/F</th>
+            <th><span class="glyphicon glyphicon-trash disabled"></span></th>
+					</tr>
+				</thead>
+				<tbody>
+          {{#each patient as |patient|}}
+          <tr>
+            {{#if patient.id}}
+            <td>{{#link-to "register.edit" patient}}<span class="glyphicon glyphicon-edit"></span>{{/link-to}} </td>
+            <td><a{{action "reprint" patient.id}}><span class="glyphicon glyphicon-print"></span></a></td>
+            <td>{{patient.id}}</td>
+            <td>{{patient.first_name}}</td>
+            <td>{{patient.last_name}}</td>
+            <td>{{patient.mobile_number}}</td>
+            <td>{{patient.email}}</td>
+            <td>{{patient.address_1}}</td>
+            <td>{{patient.city}}</td>
+            <td>{{patient.state}}</td>
+            <td>{{patient.zip}}</td>
+            <td>{{patient.dob}}</td>
+            <td>{{patient.age}}</td>
+            <td>{{patient.gender}}</td>
+            <td><a{{action "delete" patient.id}}><span class="glyphicon glyphicon-trash"></span></a></td>
+            {{/if}}
+          </tr>
+          {{/each}}
+				</tbody>
+			</table>
+		</div>
+    
+{{yield}}

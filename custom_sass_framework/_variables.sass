@@ -1,0 +1,120 @@
+// -----------------------------------------------------
+// -----------------------------------------------------
+// Colors
+// -----------------------------------------------------
+// -----------------------------------------------------
+
+
+//Grey ------------------------
+$grey-extra-light			: #f6f7f7
+$grey-light					: #eceeee
+$grey-standard				: #e1e4e4
+$grey-medium				: #d1d4d5
+$grey-dark					: #333343
+$grey-video					: #414c5a
+
+//Greens ------------------------
+$green-light					: #19808b //rgba(25, 128, 139, 1)
+$green-blue					: #00677c  //rgba(0, 103, 124, 1)
+$green-shadow				: #005367 //rgba(0, 83, 103, 1)
+
+//Orange ------------------------
+$orange-bright				: #de7f17 //rgba(237, 128, 38, 1)
+$orange-highlight			: #ee8730 //lighten($orange-bright, 8%)
+$orange-shadow				: #9b5910 //rgba(155, 89, 16, 1)
+//$orange-middle				: #ee7308
+//$orange-mid				: rgba(155, 89, 16, 1)
+
+//Purple ------------------------
+$purple						: #241942
+
+//Translucent Colors ------------------------
+$black-translucent			: rgba(0, 0, 0, 0.5) //#000000
+$grey-dark-translucent		: rgba(51, 51, 68, 0.5) //#333344
+$orange-bright-translucent	: rgba(237, 128, 38, .75) //#de7f17
+$purple-translucent			: rgba(36, 25, 66, 0.6) //#241942
+$green-translucent			: rgba(0, 103, 124, 0.6) //#00677c
+
+
+// -----------------------------------------------------
+// -----------------------------------------------------
+// Padding and Margin
+// -----------------------------------------------------
+// -----------------------------------------------------
+
+$margin-default: percentage(20 / 1200)
+
+
+// -----------------------------------------------------
+// -----------------------------------------------------
+// Fonts
+// -----------------------------------------------------
+// -----------------------------------------------------
+
+//Font Stack
+$font-serif: "adelle", Georgia, Palatino, serif
+$font-sans: "adelle-sans", sans-serif
+
+
+//Font Weights
+$light		:100
+$normal		:300
+$semibold	:400
+$bold		:600
+
+
+//Font Base size
+//$basefontsize:16
+@import _functions
+
+//Font sizes
+$x-large: em(110)
+$large: em(45)
+$h1: em(40)
+$h2: em(36)
+$h3: em(32)
+$h4: em(26)
+$h5: em(20)
+$h6: em(18)
+$p:  em(16)
+
+
+//Regular	"adelle-sans"	400	normal	
+//Italic	"adelle-sans"	400	italic
+
+//--------------------------------
+//Thin				"adelle"	100	normal
+//Thin Italic		"adelle"	100	italic
+//-----------------
+//Light				"adelle"	300	normal
+//Light Italic		"adelle"	300	italic
+//-----------------
+//Regular			"adelle"	400	normal
+//Italic			"adelle"	400	italic
+//-----------------
+//Semibold			"adelle"	600	normal
+//Semibold Italic	"adelle"	600	italic
+//-----------------
+//Bold				"adelle"	700	normal
+//--------------------------------
+
+
+//ASCII Arrows
+$arrow-small-downward: "\25BE" // ▾ //
+$arrow-large-downward: "\25B6" // ▼ //
+$arrow-small-left: "\25B8" // ▸ //
+$arrow-large-left: "\25BA" // ► //
+
+
+// -----------------------------------------------------
+// -----------------------------------------------------
+// Global Placeholders
+// -----------------------------------------------------
+// -----------------------------------------------------
+
+@mixin clearfix
+	content: '.'
+	display: block
+	height: 0
+	clear: both
+	visibility: hidden

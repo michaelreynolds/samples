@@ -1,0 +1,25 @@
+// -----------------------------------------------------	
+// Main Content
+// -----------------------------------------------------
+
+div#main
+	//flex: 1
+	> section
+		padding-top: percentage(30/1200)
+		padding-bottom: percentage(15/1200)
+		//overflow: hidden
+		+respond(all-phones)
+			padding-top: 20px
+			padding-bottom: 20px
+		+respond(small-phones)
+			padding-top: 15px
+			padding-bottom: 15px
+		
+		&:nth-child(even)
+			background-color: $grey-light
+		&:nth-child(odd)
+			background-color: $grey-standard
+		.row
+			margin: 0 auto
+			//max-width: 85.71428571rem
+			max-width: 1200px

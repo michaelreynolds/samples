@@ -1,0 +1,91 @@
+// -----------------------------------------------------	
+// Header and Nav
+// -----------------------------------------------------
+header
+	margin: 0
+	padding: 0
+	width: 100%
+	font: 300 17px $font-serif
+	background-color: $green-light
+	border-bottom: 3px solid $orange-bright
+nav
+	display: block
+	width: 100%
+	background-color: $green-blue
+	clear: both
+	& > ul
+		margin: 0 auto
+		//max-width: 85.71428571rem
+		max-width: 1200px
+		li
+			padding: 0
+			list-style: none
+			+respond(small-phones)
+				display: inline-block
+				&.mobile-nav
+					display: block
+					float: right
+			& > a
+				color: #fff
+				padding: 10px 30px
+				//padding: 0.625em 1.875em
+				background: $green-blue
+				display: block
+				min-height: 25px
+				&:hover, &:active
+					background-color: $green-shadow
+					cursor: default
+			&.dropdown
+				position: relative
+				& > a:after
+					content: " \25BE"
+				&:hover ul
+					display: block
+				& ul
+					display: none
+					min-width: 200px
+					position: absolute
+					border-top: 3px solid $orange-bright
+					+respond(all-phones)
+						border-top: none
+					//padding-top: 3px
+					//-webkit-box-shadow: 0 4px 10px 2px rgba(0,0,0,.3)
+					//box-shadow: 0 4px 10px 2px rgba(0,0,0,.3)
+					z-index: 2
+					li
+						display: block
+						list-style-type: none
+						a
+							display: block
+							padding: 10px 30px 5px 30px
+							&:hover
+								background: $green-shadow
+								cursor: default
+
+	&.primary > ul
+		& > li
+			float: left
+		&:after
+			+clearfix
+	&.secondary > ul > li
+		float: right
+		border-bottom: 3px solid $green-shadow
+		+respond(all-phones)
+			display: none
+		a
+			padding: 8px 30px 5px 30px
+		&.give
+			border-bottom: 3px solid $orange-shadow
+		&.logo
+			float: left
+			border: none
+			+respond(retina)
+				background-image: url("iamges/logo-2x.png")
+			+respond(all-phones)
+				display: block
+			a
+				background: none
+				padding: 10px
+				border: none
+				&:hover
+					background: none

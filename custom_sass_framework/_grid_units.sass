@@ -1,0 +1,375 @@
+.row
+	padding-left: 1.2%
+	padding-right: 1.2%
+	display: block
+	overflow: hidden
+	+respond(all-phones)
+		padding: 0
+	&:after, &:before
+		+clearfix
+div > .unit:last-child
+	margin-right: 0
+		// -----------------------------------------------------
+		//background-color: $orange-bright
+		//&:hover
+		//	background-color: $green-light
+		// -----------------------------------------------------
+
+// -----------------------------------------------------
+// Grid spacing and layout
+// -----------------------------------------------------
+
+// [class*="unit-"]
+.unit
+	//Box Model
+	display: inline-block
+	*display: inline
+	*zoom: 1
+	z-index: 1
+	overflow: hidden
+	*overflow: visible
+	//Positioning
+	position: relative
+	vertical-align: top
+	float: left
+	//Margins
+	margin-right: $margin-default
+	margin-bottom: $margin-default
+	
+	// -----------------------------------------------------
+	// -----------------------------------------------------
+	background: $green-light url('../images/pattern-3x.gif') repeat
+	// -----------------------------------------------------
+	// -----------------------------------------------------
+	
+	&.right
+		margin-right: 0
+		float: right
+	&.left
+		float: left
+		margin-right: 0
+	&.centered
+		margin: 0 auto
+		clear: both
+	img, video
+		width: 100%
+	
+	// -----------------------
+	//& > *
+	//	color: $grey-medium
+	// -----------------------
+	//unit inside of unit fixes
+	//& > .unit:first-child
+	//& > .unit:last-child
+	//	margin-bottom: 0
+	// -----------------------
+	
+	// -----------------------
+	//yellow hover at bottom
+	//&:hover
+	//	background-color: $orange-bright
+	//	box-shadow: #FFC917 0px -4px 0px 0px inset
+	
+.double-margins
+	margin-right: percentage(40 / 1200)
+
+// ------------------------------
+// Divided by 1 //1200px
+// ------------------------------
+.one-of-one
+	width: 100%
+
+
+// ------------------------------
+// Divided by 2 //590px
+// ------------------------------
+.one-of-two
+	+respond(default)
+		width: divisions(2)
+	+respond(tablet)
+		width: divisions(3)
+		& + .one-of-two
+			width: divisions(1)
+			margin-right: 0
+	+respond(all-phones)
+		width: divisions(2)
+	&.full
+		width: divisions(2, 1, 1200, 0) //600px
+	&.double-margins
+		width: divisions(2, 1, 1200, 40)
+	& > .one-of-one
+		margin-bottom: percentage(20 / 600)
+
+
+// ------------------------------
+// Divided by 3 //386.5px //790px
+// ------------------------------
+.one-of-three
+	+respond(default)
+		width: divisions(3)
+	&.full
+		width: divisions(3, 1, 1200, 0) //400px
+	&.double-margins
+		width: divisions(3, 1, 1200, 40)
+	& > .one-of-one
+		margin-bottom: percentage(20 / 400)
+		
+.two-of-three
+	+respond(default)
+		width: divisions(3,2)
+	&.full 
+		width: divisions(3, 2, 1200, 0) //800px
+	&.double-margins
+		width: divisions(3, 2, 1200, 40)
+	& > .one-of-one
+		margin-bottom: percentage(20 / 800)
+	+respond(default)
+		& > .one-of-two:nth-of-type(2n+3)
+			margin-right: 0
+		& > .one-of-three:nth-of-type(3n+4)
+			margin-right: 0
+
+// ------------------------------
+// Divided by 4 //285px //895px
+// ------------------------------	
+.one-of-four
+	+respond(default)
+		width: divisions(4)
+	+respond(tablet)
+		width: divisions(2)
+	+respond(all-phones)
+		width: divisions(4)
+	&.full
+		width: divisions(4, 1, 1200, 0) //300px
+	&.double-margins
+		width: divisions(4, 1, 1200, 40)
+	& > .one-of-one
+		margin-bottom: percentage(20 / 300)
+	&:nth-of-type(4n+4)
+		margin-right: 0
+		
+.three-of-four
+	+respond(default)
+		width: divisions(4,3)
+	+respond(all-mobile)
+		width: divisions(1)
+	&.full
+		width: divisions(4, 3, 1200, 0) //900px
+	&.double-margins
+		width: divisions(4, 3, 1200, 40)
+	& > .one-of-one
+		margin-bottom: percentage(20 / 895)
+	& > .one-of-two
+		margin-right: percentage(20 / 895)
+		margin-bottom: percentage(20 / 895)
+		width: divisions(2, 1, 895)
+		+respond(small-phones)
+			width: divisions(2)
+	+respond(default)
+		& > .one-of-three
+			width: divisions(3, 1, 895)
+			margin-right: percentage(20 / 895)
+			margin-bottom: percentage(20 / 895)
+			&:nth-of-type(3n+3)
+				margin-right: 0
+	+respond(tablet)
+		& > .one-of-three
+			width: divisions(3)
+			margin-right: $margin-default
+			margin-bottom: $margin-default
+			&:nth-of-type(3n+3)
+				margin-right: 0
+	+respond(all-phones)
+		& > .one-of-three
+			width: divisions(3, 1, 1200)
+			margin-right: $margin-default
+			margin-bottom: $margin-default
+			&:nth-of-type(3n+3)
+				margin-right: 0
+	+respond(small-phones)
+		& > .one-of-three
+			width: divisions(2)
+			margin-right: $margin-default
+			margin-bottom: $margin-default
+			&:nth-of-type(3n+3)
+				margin-right: $margin-default
+			&:nth-of-type(2n+2)
+				margin-right: 0
+
+
+// ------------------------------
+// Divided by 5 //224px //470px //710px //950px
+// ------------------------------
+.one-of-five
+	+respond(default)
+		width: divisions(5)
+	&.full
+		width: divisions(5, 1, 1200, 0) //240px
+	&.double-margins
+		width: divisions(5, 1, 1200, 40)
+	&:nth-of-type(5n+5)
+		margin-right: 0
+	
+.two-of-five
+	+respond(default)
+		width: divisions(5,2)
+	&.full
+		width: divisions(5, 2, 1200, 0) //480px
+	&.double-margins
+		width: divisions(5, 2, 1200, 40)
+	& > .one-of-one
+		margin-bottom: percentage(20 / 470)
+	
+.three-of-five
+	+respond(default)
+		width: divisions(5,3)
+	&.full
+		width: divisions(5, 3, 1200, 0) //720px
+	&.double-margins
+		width: divisions(5, 3, 1200, 40)
+	& > .one-of-one
+		margin-bottom: percentage(20 / 710)
+	
+.four-of-five
+	+respond(default)
+		width: divisions(5,4)
+	+respond(small-phones)
+		width: divisions(3,2)
+		+ .one-of-five
+			width: divisions(3)
+	&.full
+		width: divisions(4, 1, 1200, 0) //960px
+	&.double-margins
+		width: divisions(5, 4, 1200, 40)
+	& > .one-of-one
+		margin-bottom: percentage(20 / 950)
+
+
+
+// -----------------------------------------------------
+//special section - thumbnail view - wide margins
+// -----------------------------------------------------
+.thumbnail-view
+	padding: percentage(100 / 1200)
+	padding-top: percentage(60 / 1200)
+	padding-bottom: percentage(40 / 1200) // 8.333% - 5% = 3.333%
+	margin-bottom: $margin-default
+	overflow: hidden
+	+respond(all-phones)
+		padding-left: 0
+		padding-right: 0
+	.unit
+		margin-right: percentage(50 / 1000)
+		margin-bottom: percentage(50 / 1000)
+	& > .one-of-two
+		width: divisions(2, 1, 1000, 50)
+	& > .one-of-three
+		width: divisions(3, 1, 1000, 50)
+		+respond(small-phones)
+			width: divisions(2, 1, 1000, 50)
+			&:nth-of-type(2n+2)
+				margin-right: 0
+		&:nth-of-type(3n+3)
+			margin-right: 0
+		+respond(all-phones)
+			width: divisions(2, 1, 1000, 50)
+			&:nth-of-type(3n+3)
+				margin-right: percentage(50 / 1000)
+			&:nth-of-type(2n+2)
+				margin-right: 0
+
+// -----------------------------------------------------
+// -----------------------------------------------------
+// -----------------------------------------------------
+// -----------------------------------------------------
+
+
+// -----------------------------------------------------
+// Special sizes
+// -----------------------------------------------------
+
+// 960px
+.nine-sixty
+	width: percentage(960/1200)
+	&.centered
+		width: 960px // to prevent scaling
+		@include respond("max-width: #{1000px}")
+			width: 100%
+	& > .one-of-one
+		margin-bottom: percentage(20/960)
+	& > .one-of-two
+		margin-right: percentage(20/960)
+		width: divisions(2,1,960)
+		margin-bottom: 0
+		& > .one-of-two
+			margin-right: percentage(20/470)
+			width: percentage(225/470)
+			&:last-child
+				margin-right: 0
+
+		
+//220px
+.two-twenty
+	width: percentage(220/1200)
+	.one-of-one
+		margin-bottom: percentage(20/220)
+
+// -----------------------------------------------------
+//900px
+.nine-hundred
+	width: 75%
+	.one-of-one
+		margin-bottom: percentage(20/900)
+//280px
+.two-eighty
+	width: 23.33333333%
+	.one-of-one
+		margin-bottom: percentage(20/280)
+
+// -----------------------------------------------------
+//860px
+.eight-sixty
+	width: 71.6666666%
+	.one-of-one
+		margin-bottom: percentage(20/860)
+	//sibling after one-of-one
+	.one-of-two
+		margin-right: percentage(20/860)
+		width: divisions(2,1,860)
+		margin-bottom: 0
+//320px
+.three-twenty
+	width: 26.66666666%
+	.one-of-one
+		margin-bottom: percentage(20/320)
+
+// -----------------------------------------------------
+//800px
+.eight-hundred
+	//(800/1200)
+	width: 66.6666666%
+	.one-of-one
+		margin-bottom: percentage(20/800)
+//380px
+.three-eighty
+	//380/1200
+	width: 31.6666666%
+	.one-of-one
+		margin-bottom: percentage(20/280)
+
+// -----------------------------------------------------
+//760px
+.seven-sixty
+	width: 63.33333333%
+	.one-of-one
+		margin-bottom: percentage(20/760)
+
+//420px
+.four-twenty
+	width: 35%
+	.one-of-one
+		margin-bottom: percentage(20/420)
+
+// -----------------------------------------------------
+
+

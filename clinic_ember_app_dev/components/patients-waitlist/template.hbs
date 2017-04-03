@@ -1,0 +1,107 @@
+      <div class="col-md-12 row nonprint">
+				<h1>Patient Waitlist</h1>
+				<h3 class="text-center">Patients Awaiting Treatment</h3>
+			</div>
+			<div class="col-md-3 nonprint">
+
+        {{#each-in category as |upcoming_services patients|}}
+          <h4 class="text-center">{{category.name}}</h4>
+  				<table class="table table-hover">
+  					<thead>
+  						<tr class="bold">
+  							<th class="text-right">In</th>
+                <th>id</th>
+                <th>Name</th>
+  							<th>Est. Wait</th>
+  							<th>Notify</th>
+  						</tr>
+  					</thead>
+  					<tbody>
+              <tr class="{{category.name}}">
+                {{#each patient as |patient|}}
+                  <td><a {{action "checkin" patient.id}}><span class="glyphicon glyphicon-ok-circle text-right show"></span></a></td>
+                  <td>{{patient.id}}</td>
+                  <td>{{patient.first_name}} {{patient.last_name}}</td>
+                  <td>{{upcoming_services.elapsed_time}}</td>
+                  <td><a {{action "called" patient.id}}><span class="glyphicon glyphicon-phone text-right show"></span></a></td>
+                {{/each}}
+              </tr>
+  					</tbody>
+  				</table>
+        {{/each-in}}
+			</div>
+
+
+
+
+      <!-- <div class="col-md-3 nonprint">
+        <h4 class="text-center">Filling</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr class="bold">
+							<th class="text-right">In</th>
+							<th>Name</th>
+							<th>Est. Wait</th>
+							<th>Notify</th>
+						</tr>
+					</thead>
+					<tbody>
+            {{#each fillingPatients as |patient|}}
+            <tr class="Filling">
+							<td><a {{action "checkin" patient.id}}><span class="glyphicon glyphicon-ok-circle text-right show"></span></a></td>
+							<td>{{patient.first_name}} {{patient.last_name}}</td>
+              <td>10mins</td>
+							<td><a {{action "called" patient.id}}><span class="glyphicon glyphicon-phone text-right show"></span></a></td>
+						</tr>
+            {{/each}}
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-3 nonprint">
+        <h4 class="text-center">Extractions</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr class="bold">
+							<th class="text-right">In</th>
+							<th>Name</th>
+							<th>Est. Wait</th>
+							<th>Notify</th>
+						</tr>
+					</thead>
+					<tbody>
+            {{#each extractionPatients as |patient|}}
+            <tr class="Extractions">
+							<td><a {{action "checkin" patient.id}}><span class="glyphicon glyphicon-ok-circle text-right show"></span></a></td>
+							<td>{{patient.first_name}} {{patient.last_name}}</td>
+              <td>10mins</td>
+							<td><a {{action "called" patient.id}}><span class="glyphicon glyphicon-phone text-right show"></span></a></td>
+						</tr>
+            {{/each}}
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-3 nonprint">
+        <h4 class="text-center">Root Canals</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr class="bold">
+							<th class="text-right">In</th>
+							<th>Name</th>
+							<th>Est. Wait</th>
+							<th>Notify</th>
+						</tr>
+					</thead>
+					<tbody>
+            {{#each rootCanalPatients as |patient|}}
+            <tr class="Root Canals">
+							<td><a {{action "checkin" patient.id}}><span class="glyphicon glyphicon-ok-circle text-right show"></span></a></td>
+							<td>{{patient.first_name}} {{patient.last_name}}</td>
+              <td>10mins</td>
+							<td><a {{action "called" patient.id}}><span class="glyphicon glyphicon-phone text-right show"></span></a></td>
+						</tr>
+            {{/each}}
+					</tbody>
+				</table>
+			</div> -->
+
+{{yield}}

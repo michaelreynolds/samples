@@ -1,0 +1,23 @@
+<div class="row nonprint">
+  <div class="col-md-10">
+    <h1>Clinic Patient Registration</h1>
+    {{#if loggedIn}}
+      <div class="breadcrumbfx flat">
+        {{#link-to "register"}}Register{{/link-to}} <!-- Patient Registration -->
+        {{#link-to "assessment"}}Assesment{{/link-to}} <!-- assessment Assesment -->
+        {{#link-to "waitlist"}}Waitlist{{/link-to}} <!-- Waitlist -->
+        {{#link-to "checkout"}}Checkout{{/link-to}} <!-- Service Check-in and Check-out -->
+      </div>
+    {{/if}}
+  </div>
+  <div class="col-md-2">
+    <h1>Settings</h1>
+    {{#link-to "login" class="btn btn-default"}}Login{{/link-to}}
+    {{#link-to "setup" class="btn btn-default"}}Setup{{/link-to}}
+  </div>
+</div>
+
+
+ <!-- Service Check-in and Check-out -->
+
+{{yield}}

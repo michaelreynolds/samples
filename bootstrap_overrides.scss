@@ -1,0 +1,414 @@
+// Based on Bootstrap
+
+///////////////////////////////////////
+////////START OF DONOR FRAME///////////
+///////////////////////////////////////
+
+
+@include media-breakpoint-up(sm){
+  .donor-frame {
+    width: 380px;
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@include media-breakpoint-down(sm){
+  .donor-frame {
+    width: 100%;
+  }
+}
+
+
+.give-modal {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.branding {
+  position: relative;
+  margin-bottom: -50px;
+
+  .client_logo {
+    margin: auto;
+    border: 5px solid #eee;
+    background: #fff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+    & > img {
+      width: 80px;
+      height: 80px;
+      margin: auto;
+    }
+  }
+}
+
+.donor {
+  & .form-control {
+    color: $input-color;
+    background: #fff;
+    border-left: 0;
+    padding-left: 0;
+    border: 1px soild rgba(24, 50, 59, 0.15);
+
+    &:focus {
+      border-color: lighten($dark-green, 30);
+    }
+  }
+
+  .address {
+    margin-bottom: 0;
+  }
+
+  a.add-address {
+    color: $gray-light;
+    font-size: 0.8em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .btn:focus {
+    border-color: $body-color;
+  }
+
+  .btn-donor {
+    @extend .btn;
+
+    color: $btn-primary-color;
+    font-size: 1.2em;
+    background-color: $dark-green;
+    background: $dark-green-gradient;
+    border-color: $dark-green;
+
+    &:hover, &:focus, &:active {
+      color: $btn-primary-color;
+      background-color: $dark-green;
+      background: $dark-green-gradient;
+    }
+  }
+
+  div.input-group-addon {
+    color: lighten($dark-green, 70);
+    background: #fff;
+    font-size: 0.9rem;
+    border-right: 0;
+    border-color: rgba(24, 50, 59, 0.25);
+
+    &:last-child {
+      border-right: 0;
+      background-color: default;
+    }
+
+    &.focused-group {
+      border-color: lighten($dark-green, 30);
+    }
+  }
+
+  p.logo-title {
+    text-align: center;
+    font-size: 0.75em;
+    padding-top: 15px;
+
+    & a {
+      color: $brand-accent;
+
+      &:hover {
+        color: $brand-accent;
+      }
+    }
+
+    & img {
+      width: 4rem;
+      margin: 0 auto;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+input{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.close {
+  position: absolute;
+  width: 20px;
+}
+
+.form-group{
+  .form-inline {
+    & :last-child {
+      margin-right: 0;
+    }
+  }
+
+  .lower {
+    margin-top: 0.25rem;
+  }
+
+  .two-set {
+    & .col-xs-6 {
+      padding-right: 0.25rem;
+      padding-left: 0;
+    }
+
+    & :last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+
+.header {
+  padding-top: 50px;
+
+  & .organization {
+    color: $gray-light;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 0.5em;
+  }
+
+  & .subtotal {
+    color: $gray-light;
+    font-size: 0.75em;
+  }
+}
+
+///////////////////////////////////////
+/////////END OF DONOR FRAME////////////
+///////////////////////////////////////
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a.secondary {
+  color: $link-color-secondary;
+}
+
+header.color-gradient {
+  background-color: $dark-green-nav-gradient;
+  background: $dark-green-nav-gradient;
+
+  & .container .logo {
+    display: block;
+    width: 8.125rem;
+    margin-top: 1.25rem;
+    padding: 0.315rem;
+  }
+
+  & .color-gradient-separator {
+    background: $gradient-accent;
+    width: 100%;
+    height: 2px;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  & .organization {
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: $font-family-alt-sans-serif;
+  }
+
+  & .navbar-custom {
+    background-color: $dark-green;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  & .nav, .navbar-nav, .nav-link, .nav-item, .navbar-brand, .navbar-toggler {
+    color: #98a5ab;
+    font-size: 0.9375rem;
+    font-family: $font-family-alt-sans-serif;
+    display: block;
+
+    &.active, :hover {
+      color: $light-blue;
+    }
+  }
+}
+
+.dropdown-item > a {
+  color: $antiflash;
+}
+
+.table-search {
+  background: $mid-green;
+  background-color: $mid-green;
+  border-radius: $table-border-radius;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 0;
+  display: flex;
+
+  & .search-form {
+    margin: auto;
+    padding: 8px;
+  }
+}
+
+.table-hover {
+  th a {
+    color: $light-blue;
+    &:hover {
+      color: $light-blue !important;
+      text-decoration: none !important;
+    };
+  }
+
+  td {
+    font-size: 0.9rem;
+    font-weight: normal;
+  }
+
+  .status {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75em;
+    border: 1px solid #ddd;
+    color: #3a5766;
+    border-radius: 1.25rem;
+    padding-right: 3px;
+    padding-left: 3px;
+  }
+}
+
+.login {
+  background: $dark-green-gradient;
+  border-radius: $border-radius;
+  color: $antiflash;
+  padding: 2rem;
+  @include media-breakpoint-up(sm){
+    &.mx-auto{
+      max-width: 23rem;
+    }
+  }
+  @include media-breakpoint-down(sm){
+    &.mx-auto{
+      max-width: 100%;
+    }
+  }
+  &.mx-auto{
+    margin: 0 auto;
+  }
+  &.clear {
+    border-top: none;
+    background: none;
+  }
+  & .form-group {
+    margin-bottom: 1.5rem;
+  }
+  & :last-child{
+    margin-bottom: 0;
+  }
+  & .btn{
+    width: 100%;
+  }
+  & .btn-group {
+    width: 100%;
+    & > .btn {
+      width: 50%;
+    }
+  }
+}
+
+
+.login, .search-form {
+  & .form-control {
+    border: 2px solid $antiflash;
+
+    &:focus {
+      border-color: $antiflash;
+    }
+  }
+}
+
+///////////////////////////////////////
+///////////////////////////////////////
+
+.btn-icon {
+  border: none;
+  background-color: transparent;
+
+  &.dropdown-toggle::after {
+    display: none;
+  }
+}
+
+.btn-primary {
+  background-color: $btn-primary-green;
+  border: 1px solid $btn-primary-green;
+  color: $antiflash;
+
+  &:hover, &:visited, &:active, &:focus {
+    background: $btn-highlights !important;
+    border-color: $btn-highlights !important;
+    outline: none !important;
+  }
+}
+
+.btn-outline-primary {
+  color: $mid-green;
+  background-image: none;
+  background-color: $antiflash;
+  border-color: $mid-green;
+
+  &:hover {
+    color: $antiflash;
+    background-color: $mid-green;
+    border-color: $mid-green;
+  }
+
+  &:focus,
+  &.focus {
+    color: $antiflash;
+    background-color: $mid-green;
+    border-color: $mid-green;
+    outline: $mid-green;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $antiflash;
+    background-color: $mid-green;
+    border-color: $mid-green;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $antiflash;
+      background-color: $mid-green;
+      border-color: $mid-green;
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    &:focus,
+    &.focus {
+      border-color: lighten($mid-green, 20%);
+    }
+
+    &:hover {
+      border-color: lighten($mid-green, 20%);
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div class="col-md-12 row nonprint">
+<h1>Triage Assessment</h1>
+</div>
+<div class="row nonprint">
+  <div class="col-md-5">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <p class="panel-title">Scannned Record ID:
+          <strong>{{input enter="getPatient" class="transparent barcode mono" autofocus="autofocus" placeholder="search patient id" value=patient.id}}</strong>
+        </p>
+      </div>
+      <div class="panel-body">
+       {{#if patient.id}}
+         <p class="mono">{{patient.first_name}} {{patient.last_name}}</p>
+         <p class="mono">{{patient.address_1}}, {{patient.city}}, {{patient.state}} {{patient.zip}}</p>
+         <p class="mono">{{patient.age}} • {{patient.gender}} • {{patient.dob}}</p>
+         <p class="mono">{{patient.email}} • {{patient.mobile_number}}</p>
+       {{else}}
+        <p class="text-center"><span class="glyphicon glyphicon-search disabled"></span>  Scan barcode to lookup patient record</p>
+       {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{#if patient.id}}
+<div class="col-md-12 row nonprint">
+   <h5 >Add to a Waitlist:</h5>
+   <input type="button" {{action "setService" patient.id}} class="btn btn-warning" value="Cleaning">
+   <input type="button" {{action "setService" patient.id}} class="btn btn-warning" value="Filling">
+   <input type="button" {{action "setService" patient.id}} class="btn btn-warning" value="Extraction">
+   <input type="button" {{action "setService" patient.id}} class="btn btn-warning" value="Root Canal">
+</div>
+{{/if}}

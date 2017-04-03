@@ -1,0 +1,53 @@
+<div class="nonprint">
+  <form class="col-md-5">
+    <div class="form-inline row">
+      {{input type="text" value=first_name placeholder="First Name" class="form-control" required="required"}}
+      {{input type="text" value=last_name placeholder="Last Name" class="form-control" required="required"}}
+    </div>
+    <div class="clearfix"></div>&nbsp;
+    <div class="form-inline	row">
+      {{input type="text" value=mobile_number placeholder="Mobile Phone" class="form-control"}}
+      {{input type="email" value=email placeholder="Email" class="form-control"}}
+    </div>
+    <div class="clearfix"></div>&nbsp;
+    <div class="form-inline	row">
+      {{input type="text" value=address_1 placeholder="Street Address" class="form-control" required="required"}}
+      {{input type="text" value=city placeholder="City" class="form-control"}}
+    </div>
+    <div class="clearfix"></div>&nbsp;
+    <div class="form-inline row">
+      {{input type="text" value=state placeholder="State" class="form-control"}}
+      {{input type="text" focus-out="validate" value=zip placeholder="Zip" class="form-control" size="6" maxlength="5" required="required"}}
+    </div>
+    <div class="clearfix"></div>&nbsp;
+    <div class="form-inline	row">
+      {{input type="text" value=dob placeholder="Date of Birth" class="form-control" required="required" pattern="\d{1,2}/\d{1,2}/\d{4}"}}
+    </div>
+    <div class="clearfix"></div>&nbsp;
+    <div class="form-inline	row">
+      <div style="display:inline; margin-left:20px;">
+        <label class="radio-inline" required>
+          {{#radio-button
+            value="M"
+            required=true
+            groupValue=gender}}
+            Male
+          {{/radio-button}}
+        </label>
+        <label class="radio-inline" required>
+          {{#radio-button
+            value="F"
+            required=true
+            groupValue=gender }}
+            Female
+          {{/radio-button}}
+        </label>
+      </div>
+    </div>
+    <div class="clearfix"></div>&nbsp;
+    <div class="form-inline	row">
+      <button {{action "createPatient" }} class="btn btn-default" id="printform">Generate &amp; Print Label</button>
+    </div>
+  </form>
+</div>
+{{yield}}
