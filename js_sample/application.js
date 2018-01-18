@@ -1,45 +1,32 @@
 // author: Michael Reynolds - github.com/michaelreynolds
 // date: April 2016
 //
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
 //
 //= require jquery
 //= require jquery_ujs
 //= require jquery-fullscreen/jquery.fullscreen-min.js
 //= require d3
-//= require bootstrap-sprockets
-//= require_tree ./channels
-//= require_tree .
 $(document).ready(function() {
 
+    //barcode generator
     if ($("#barcode").length) {
         generateCode39Barcode();
     }
 
+    //form helpers
     $("#patient_mobile_number:input").mask('+1-(000)-000-0000');
     $("#patient_dob:input").mask('00/00/0000');
-
     $('.message a').click(function() {
         $('form').animate({
             height: "toggle",
             opacity: "toggle"
         }, "slow");
     });
-
     $('#patient_zip').focusout(function() {
         $('#patient_dob').focus();
     });
 
+    //zipcode lookup
     if ($("#patient_zip").length) {
         var state, city;
         var sumitted = false;
@@ -70,6 +57,7 @@ $(document).ready(function() {
         });
     }
 
+    //barcode reader
     if ($("#assessment").length) {
         // modified from: www.deadosaurus.com/detect-a-usb-barcode-scanner-with-javascript
         var pressed = false;
