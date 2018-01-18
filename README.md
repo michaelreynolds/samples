@@ -1,2 +1,2 @@
-# code samples from 2014 - 2016
+code samples from 2014 - 2016
 
