@@ -7,7 +7,7 @@ import ActiveModelAdapter from 'active-model-adapter';
 export default ActiveModelAdapter.extend();
 
 export default DS.JSONAPIAdapter.extend({
-  host: 'https://api.box.clinic',
+  host: '[redacted]',
   namespace: Ember.computed(function(){
     if(Cookies.get('token') === undefined){
       return"api/v1/sessions";
